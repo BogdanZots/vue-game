@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rock paper scissors</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Rock paper scissors</h1>
+</header>
+<div id="game">
+    <section id="rival" class="container">
+        <h2>Соперник</h2>
+        <div id="rival-area" class="play-area">
+            <div :class="['card', {'rival-before': rivalImageBack, 'rival-ready': !rivalImageBack}]">
+                <img src="images/rock.png" alt="rock" class="play-img"/>
+            </div>
+            <div :class="['card', {'rival-before': rivalImageBack, 'rival-ready': !rivalImageBack}]">
+                <img src="images/paper.png" alt="paper" class="play-img"/>
+            </div>
+            <div :class="['card', {'rival-before': rivalImageBack, 'rival-ready': !rivalImageBack}]">
+                <img src="images/scissors.png" alt="scissors" class="play-img"/>
+            </div>
+            <div class="info-card">
+                <div class="indicators" :style='{visibility: rivalReadyDisable}'>Я готов</div>
+                <div class="indicators" :style='{visibility: rivalNewGameDisable}'>Новая игра</div>
+            </div>
+        </div>
+    </section>
+    <section id="result" class="container">
+        <div id="result-area" class="play-area info">
+            <div class="rules">
+                <p>Когда оба игрока готовы - игрок кликнул кнопку "Я готов", у соперника появилась надпись "Я
+                    готов" - начат раунд игры. Каждый игрок выбирает свою фигуру не ожидая другого.
+                    После обоюдного выбора сервер показывает выбранные фигуры, сравнивает их и сообщает кто победил.</p>
+                <p>Далее активируется кнопка "Новая игра". После нажатия на нее
+                    обоими игроками начинается новый раунд игры.</p>
+            </div>
+            <div class="process">
+                <h2>Процесс игры</h2>
+                <ul class="lister">
+                    <li v-for="logg in loggist" :class="logg[1]">{{ logg[0] }}</li>
+                </ul>
+            </div>
+            <div class="result">
+                <h2>Победитель</h2>
+                <div class="result-pad">
+                    <div :class="['symbol', winnerClass]" v-html="winSign[winner][0]"></div>
+                </div>
+                <div class="total">
+                    <span class="symbol-green">{{ playerWinsCount}}</span>
+                    <span class="symbol-red">{{ rivalWinsCount}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="player" class="container">
+        <h2>Я (игрок)</h2>
+        <div id="player-area" class="play-area">
+            <button :class="['card', {'player-before': playerImageBack, 'player-ready': !playerImageBack, 'chosen': chosen === 'rock'}]"
+                    @click="playerChosen('rock')" :disabled="disableImgs">
+                <img src="images/rock.png" alt="rock" class="play-img"/>
+            </button>
+            <button :class="['card', {'player-before': playerImageBack, 'player-ready': !playerImageBack, 'chosen': chosen === 'paper'}]"
+                    @click="playerChosen('paper')" :disabled="disableImgs">
+                <img src="images/paper.png" alt="paper" class="play-img"/>
+            </button>
+            <button :class="['card', {'player-before': playerImageBack, 'player-ready': !playerImageBack, 'chosen': chosen === 'scissors'}]"
+                    @click="playerChosen('scissors')" :disabled="disableImgs">
+                <img src="images/scissors.png" alt="scissors" class="play-img"/>
+            </button>
+            <div class="info-card">
+                <button class="controls" @click="playerReady" :disabled="playerReadyDisable">Я готов</button>
+                <button class="controls" :disabled="playerNewGameDisable" @click="newGame">Новая игра</button>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

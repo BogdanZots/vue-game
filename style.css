@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  background-color: #97bb33;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+section {
+  width: 90%;
+  max-width: 90rem;
+  margin: auto;
+}
+
+.container {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+}
+
+.card {
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: solid 0.5rem transparent;
+}
+
+.card:hover {
+  border-color: #999;
+}
+
+.play-img {
+  height: 15rem;
+}
+
+.play-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-card {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.rules {
+  font-size: 1.3rem;
+  width: 40%;
+  text-align: justify;
+}
+
+.info {
+  padding: 0 1rem;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-pad {
+  display: flex;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 14rem;
+  height: 14rem;
+  border: solid 0.5rem #bbb;
+  border-radius: 50%;
+}
+
+.symbol {
+  display: flex;
+  align-self: center;
+  font-size: 13rem;
+  font-weight: 900;
+}
+
+.symbol-grey {
+  color: #aaa;
+}
+
+.symbol-red {
+  color: #d55;
+}
+
+.symbol-green {
+  color: #5b5;
+}
+
+.symbol-dark {
+  color: #777;
+}
+
+.symbol-blue {
+  color: #48d;
+}
+
+.process {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  justify-content: left;
+  padding-right: 2rem;
+}
+
+.lister {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: left;
+  font-size: 1.3rem;
+}
+
+.lister li {
+  display: flex;
+  justify-content: left;
+}
+
+.total {
+  border: #555555 solid 0.2rem;
+  border-radius: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.total span {
+  font-size: 3rem;
+  margin: 0 1rem;
+  font-weight: bolder;
+}
+
+/* player styles */
+.controls {
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.player-before,
+.rival-before {
+  background-color: #bbb;
+}
+
+.player-ready,
+.rival-ready {
+  background-color: white;
+  box-shadow: 0.2rem 0.2rem 1rem #ddd;
+}
+
+.chosen {
+  background-color: #dbff77;
+}
+
+/* rival styles */
+.indicators {
+  font-size: 1.4rem;
+  font-weight: 900;
+  border: 0.1rem solid #555;
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+
+
+/*       Adaptive    */
+@media (max-width:940px){
+  .play-area{
+    flex-direction: column;
+  }
+  .info-card{
+    align-self: center;
+  }
+  .rules{
+    width: 100%;
+  }
+}
+
