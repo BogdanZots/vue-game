@@ -14,7 +14,8 @@
 </head>
 <body>
 <header>
-    <h1>Rock paper scissors</h1>
+    <h1 id="gameWinner">Rock paper scissors</h1>
+    <h2 id="rules" class="rules rules-hidden">Правила игры</h2>
 </header>
 <div id="game">
     <section id="rival" class="container">
@@ -77,12 +78,25 @@
                     @click="playerChosen('scissors')" :disabled="disableImgs">
                 <img src="images/scissors.png" alt="scissors" class="play-img"/>
             </button>
-            <div class="info-card">
+            <div class="info-card info-card__bottom">
                 <button class="controls" @click="playerReady" :disabled="playerReadyDisable">Я готов</button>
                 <button class="controls" :disabled="playerNewGameDisable" @click="newGame">Новая игра</button>
             </div>
         </div>
     </section>
 </div>
+<div class="overlay">
+    <div class="popup">
+        <h2 class="popup__h2">Правила игры </h2>
+        <p class="popup-p">
+        Когда оба игрока готовы - игрок кликнул кнопку "Я готов", у соперника появилась надпись "Я
+        готов" - начат раунд игры. Каждый игрок выбирает свою фигуру не ожидая другого.
+        После обоюдного выбора сервер показывает выбранные фигуры, сравнивает их и сообщает кто победил.</p class="popup-p">
+    <p class="popup-p">Далее активируется кнопка "Новая игра". После нажатия на нее
+        обоими игроками начинается новый раунд игры.<p class="popup-p">
+        <div class="close-popup"></div>
+    </div>
+</div>
+
 </body>
 </html>

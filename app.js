@@ -114,7 +114,9 @@ const app = Vue.createApp({
                     this.winner = 3; // draw
                 }
             }
+            let gameWinner = document.querySelector('#gameWinner');
             this.loggist.unshift(["Победитель: " + this.winSign[this.winner][1], "symbol-blue"]);
+            gameWinner.innerHTML = ["Победитель: " + this.winSign[this.winner][1]];
             this.playerNewGameDisable = false;
         },
         newGame() {
@@ -147,4 +149,18 @@ const app = Vue.createApp({
     },
 });
 
+const rulesButton = document.querySelector('#rules'),
+      overlay = document.querySelector('.overlay'),
+      popup = document.querySelector('.popup');
+
+rulesButton.addEventListener('click',()=>{
+overlay.classList.remove('hidden')
+overlay.classList.add('visible');
+})
+
+overlay.addEventListener('click',(e)=>{
+  if(e.target != popup ){
+      overlay.classList.add('hidden')
+  }
+})
 app.mount("#game");
