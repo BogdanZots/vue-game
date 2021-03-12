@@ -5,10 +5,12 @@
 html {
   font-family: "Jost", sans-serif;
   font-size: 10px;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 header {
@@ -254,8 +256,21 @@ section {
 }
 /*       Adaptive    */
 @media (max-width:890px){
+  #game{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .indicators,.controls{
+    padding: 0.5rem;
+  }
+  body{
+    display: flex;
+    flex-direction: column;
+  }
   .container{
-    box-shadow: 0;
+    border-radius: 0;
   }
   .indicators:nth-child(2){
     display: none;
@@ -302,6 +317,9 @@ section {
   }
 }
 @media(max-width:730px){
+  #result{
+    height: inherit;
+  }
   .play-img{
     height: 8rem;
   }
@@ -312,9 +330,6 @@ section {
   .controls , .indicators{
     margin-top: 1rem;
   }
-  .process{
-    max-height: 10rem;
-  }
   .lister{
     width: 100%;
    overflow-y: scroll;
@@ -324,10 +339,20 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1rem;
   }
   .rules-hidden{
-    display: block;
+    width:inherit;
     text-align: right;
+    display: inline-block;
+    text-align: right;
+    border: 1px solid #8b7f7f;
+    padding: 0.5rem;
+    color: black;
+    background-color: #e6e3e3;
+  }
+  .container{
+    margin: 0.5rem auto;
   }
 }
 @media(max-width:420px){
